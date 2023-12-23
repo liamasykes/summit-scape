@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from summitscape.views import index
+from summitscape.views import index, mountain_list
 
 urlpatterns = [
     path('', index, name='index'),
-    path("summitscape/", include("summitscape.urls")),
+    path('summitscape/', include('summitscape.urls')),
+    path('mountains/', mountain_list, name='mountain_list'),
     path('admin/', admin.site.urls),
 ]

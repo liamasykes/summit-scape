@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain List</title>
+    <!-- Link to your CSS files, if any -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Mountains</h1>
+        <!-- You can add navigation, search bar, etc., here -->
+    </header>
+
+    <main>
+        <!-- Loop through the mountains and display their information -->
+        {% for mountain in mountains %}
+            <div class="mountain">
+                <h2>{{ mountain.name }}</h2>
+                <p>Elevation: {{ mountain.elevation }} meters</p>
+                <p>Location: {{ mountain.location }}</p>
+                <!-- Add more mountain details if needed -->
+            </div>
+        {% empty %}
+            <p>No mountains found.</p>
+        {% endfor %}
+    </main>
+
+    <footer>
+        <!-- Footer content goes here -->
+    </footer>
+
+    <!-- Link to your JavaScript files, if any -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
